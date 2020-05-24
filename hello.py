@@ -12,7 +12,7 @@ from keras_preprocessing import image
 import PIL
 import keras
 from keras.utils import np_utils
-import random
+from contextlib import redirect_stdout
 
 #datasets
 (X_train,y_train) , (X_test, y_test)= mnist.load_data('mymnist.db')
@@ -57,7 +57,7 @@ model.add(Flatten())
 
 
 
-model.add(Dense(units = 100 , activation = 'relu')) 
+model.add(Dense(units = 1 , activation = 'relu')) 
 
 
     
@@ -83,10 +83,6 @@ scores = model.evaluate(X_test, y_test, verbose=1)
 print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])
 
-try :
-    file = open("/code/accuracy.txt", "w")
-    file.write(str(int(scores[1])))
-except:
-    print(end="")
-finally:
-    file.close()
+with open('accuracy.txt', 'w') as f:
+    with redirect_stdout(f):
+        print(scores[1]*100)
