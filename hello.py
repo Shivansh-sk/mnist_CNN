@@ -14,7 +14,7 @@ import keras
 from keras.utils import np_utils
 from contextlib import redirect_stdout
 
-#datasets
+#dataset
 (X_train,y_train) , (X_test, y_test)= mnist.load_data('mymnist.db')
 img_rows = X_train[0].shape[0]
 img_cols = X_train[1].shape[0]
