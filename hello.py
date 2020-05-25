@@ -56,8 +56,8 @@ for i in range(i):
 model.add(Flatten())
 
 
-
-model.add(Dense(units = 1 , activation = 'relu')) 
+#addingDense
+model.add(Dense(units = 3 , activation = 'relu')) 
 
 
     
