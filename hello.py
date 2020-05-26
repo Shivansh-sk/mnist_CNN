@@ -83,7 +83,7 @@ scores = model.evaluate(X_test, y_test, verbose=1)
 print('Test loss:', scores[0])
 print('Test accuracy:', scores[1])
 
-#saving accuracy
+
 with open('accuracy.txt', 'w') as f:
     with redirect_stdout(f):
         print(str(int(scores[1]*100)))
